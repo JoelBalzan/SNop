@@ -1,6 +1,6 @@
 import numpy as np
 import os
-from src.snop.utils.globalpars import *
+from ..utils.globalpars import *
 
 
 def generate_dynspec(t_ser, n):

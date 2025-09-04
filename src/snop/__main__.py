@@ -2,7 +2,7 @@ import argparse
 import os
 import sys
 
-from src.snop.core.gen_ds import *
+from .core.gen_ds import *
 
 
 
