@@ -17,7 +17,7 @@ keywords = ["FRB", "signal-to-noise", "optimise"]
 Homepage = "https://github.com/JoelBalzan/SNop"
 
 [project.scripts]
-fires = "snop.__main__:main"
+snop = "snop.__main__:main"
 
 [tool.setuptools]
 include-package-data = true
