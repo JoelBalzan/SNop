@@ -162,6 +162,7 @@ def _shift_cube_left_no_wrap(stokes_cube, shifts):
 
 
 def find_frb_and_zoom(
+	frbname,
     stokes_ds,
     sigma_threshold=7.0,
     zoom_half_width=256,
@@ -220,7 +221,7 @@ def find_frb_and_zoom(
         and (tsamp_s is not None)
     ):
         shifts = _compute_dm_shifts_samples(dm, freqs_MHz, tsamp_s, f_ref_MHz=f_ref_MHz)
-        cube = _shift_cube_left_no_wrap(stokes_ds, shifts)
+        cube = _shift_cube_left_no_wrap(stokes_ds+f"/{frbname}_zoom", shifts)
         was_dedispersed = True
 
     # Detect on chosen Stokes (default: I)
