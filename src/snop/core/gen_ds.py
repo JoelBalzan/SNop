@@ -56,9 +56,9 @@ def calculate_stokes_unnormalised(x, y):
     }
     stks = []
     
-    print("*******************************")
-    print("\n Negating Q to conform to the world of pulsars !!! \n")
-    print("*******************************")
+    #print("*******************************")
+    #print("\n Negating Q to conform to the world of pulsars !!! \n")
+    #print("*******************************")
 	
     for idx, stk in enumerate(["i", "q", "u", "v"]):
         par = stokes[stk](x, y)
