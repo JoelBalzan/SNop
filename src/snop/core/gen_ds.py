@@ -28,18 +28,16 @@ def voltage_ds(frbname, X, Y, dm, nchan, outdir):
 		yvdat		=	np.load(Y,mmap_mode='r')
 		xvdspec		=	generate_dynspec(xvdat, nchan)
 		yvdspec		=	generate_dynspec(yvdat, nchan)
-		np.save("{}reduced/{}_x_vds_{}_{}.npy".format(outdir,frbname,dm,nchan),xvdspec.T)
-		np.save("{}reduced/{}_y_vds_{}_{}.npy".format(outdir,frbname,dm,nchan),yvdspec.T)
+		#np.save("{}reduced/{}_x_vds_{}_{}.npy".format(outdir,frbname,dm,nchan),xvdspec.T)
+		#np.save("{}reduced/{}_y_vds_{}_{}.npy".format(outdir,frbname,dm,nchan),yvdspec.T)
 		dslen		=	xvdspec.shape[0]
 		del(xvdat)
 		del(yvdat)
-		del(xvdspec)
-		del(yvdspec)
 	else:
 		print("voltage_ds ---- PANIC - File(s) not found!")
 		print("\n******* Have you polcaled ? ******\n")
 
-	return(dslen)
+	return xvdspec.T, yvdspec.T
 
 
 

@@ -48,8 +48,8 @@ def main():
     args = parser.parse_args()
 
 
-
-    gen_stokes_ds(args.frbname, args.xdata, args.ydata, args.dm, args.nchan, args.outdir)
+    xDS, yDS = voltage_ds(args.frbname, args.xdata, args.ydata, args.dm, args.nchan, args.outdir)
+    gen_stokes_ds(args.frbname, xDS, yDS, args.dm, args.nchan, args.outdir)
 
 if __name__ == "__main__":
     main()
