@@ -75,23 +75,23 @@ def gen_stokes_ds(frbname, x, y, dm, nchan, outdir):
 
 	#	Construct dynamic spectra for I, Q, U, V
 
-	if(os.path.exists(x) and os.path.exists(y)):
-		xvds	=	np.load(x)
-		yvds	=	np.load(y)
-		#pcals	=	np.loadtxt(polcalfile)
-		stksds	=	np.zeros((4,xvds.shape[0],xvds.shape[1]), dtype=float)
-		
-		for cc in range(0,nchan):
-			stkst	=	calculate_stokes_unnormalised(xvds[cc], yvds[cc])
-			for i in range(0,4):
-				stksds[i,cc]	=	stkst[i]	
-		
-		np.save("{}{}_stks_ds_{}_{}_avg_1_1.npy".format(outdir,frbname,dm,nchan),stksds)	
-		#print(stksds.shape)
-		del(stksds)
-		del(xvds)
-		del(yvds)
-	else:
-		print("gen_stokes_ds ---- PANIC - File(s) not found!")
+#	if(os.path.exists(x) and os.path.exists(y)):
+	xvds	=	np.load(x)
+	yvds	=	np.load(y)
+	#pcals	=	np.loadtxt(polcalfile)
+	stksds	=	np.zeros((4,xvds.shape[0],xvds.shape[1]), dtype=float)
+	
+	for cc in range(0,nchan):
+		stkst	=	calculate_stokes_unnormalised(xvds[cc], yvds[cc])
+		for i in range(0,4):
+			stksds[i,cc]	=	stkst[i]	
+	
+	np.save("{}{}_stks_ds_{}_{}_avg_1_1.npy".format(outdir,frbname,dm,nchan),stksds)	
+	#print(stksds.shape)
+	del(stksds)
+	del(xvds)
+	del(yvds)
+#	else:
+#		print("gen_stokes_ds ---- PANIC - File(s) not found!")
 
 	return(nchan*Raw_time_res_ms)
