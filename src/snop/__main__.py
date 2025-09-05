@@ -49,7 +49,11 @@ def main():
 
 
     xDS, yDS = voltage_ds(args.frbname, args.xdata, args.ydata, args.dm, args.nchan, args.outdir)
-    gen_stokes_ds(args.frbname, xDS, yDS, args.dm, args.nchan, args.outdir)
+    stokes_DS = gen_stokes_ds(args.frbname, xDS, yDS, args.dm, args.nchan, args.outdir)
+    zoom_cube, meta = find_frb_and_zoom(stokes_DS, save_path=args.outdir)
+    
+    print(f"Zoomed cube shape: {zoom_cube.shape}")
+    print(f"Metadata: {meta}")
 
 if __name__ == "__main__":
     main()
