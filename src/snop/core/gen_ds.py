@@ -86,7 +86,8 @@ def gen_stokes_ds(frbname, x, y, dm, nchan, outdir):
 		for i in range(0,4):
 			stksds[i,cc]	=	stkst[i]	
 	
-	np.save("{}{}_stks_ds_{}_{}_avg_1_1.npy".format(outdir,frbname,dm,nchan),stksds)	
+	np.save("{}{}_stks_ds_{}_{}_avg_1_1.npy".format(outdir,frbname,dm,nchan),stksds)
+	print("Saved: {}{}_stks_ds_{}_{}_avg_1_1.npy".format(outdir,frbname,dm,nchan))
 	#print(stksds.shape)
 	del(stksds)
 	del(x)
